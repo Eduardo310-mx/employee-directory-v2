@@ -10,6 +10,24 @@ const employees = [
   { id: 9, name: "Verile Bondesen" },
   { id: 10, name: "Gwen Grollmann" },
 ];
+export function getEmployees() {
+  return employees
+}
 
+export function getEmployeesId(id) {
+  return employees.find(employee => employee.id === id);
+}
+
+export function addEmployee(name){
+  const lastEmployee = employees[employees.length - 1];
+  let id = lastEmployee.id ;
+  id++;
+  const obj = {
+    id,
+    name,
+  };
+  employees.push(obj);
+  return obj;
+}
 /* WARNING: this must remain the default export in order for the tests to work! */
 export default employees;
